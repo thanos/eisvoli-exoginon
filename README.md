@@ -156,6 +156,7 @@ if next_town != nill {
    
 
 ## How to Run
+
 ```
 go run main.go  -energy=bool -energy=int  N map_file
 ```
