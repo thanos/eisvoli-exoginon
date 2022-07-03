@@ -1,3 +1,7 @@
+
+![Martian war machines destroying an English town in H  G  Wells  The War of the Worlds](https://user-images.githubusercontent.com/38292/177047313-29ac259c-7908-4c66-aa78-8bd8b928c8d8.png)
+
+
 # Aisvoli Exoginon
 A simulation example in golang
 
@@ -142,5 +146,6 @@ if next_town != nill {
 
   So the next question is `channels` or `Mutex` and where ?
    
+
 
 
