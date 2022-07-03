@@ -6,7 +6,7 @@
 A simulation example in golang
 
 
-* [Problem Outline](problem-outline)
+* [problem-outline](https://github.com/thanos/eisvoli-exoginon/blob/main/README.md#problem-outline)
 * [Basic Needs](basic-needs)
 * [How To Run](how_to_run)
 
