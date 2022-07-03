@@ -11,7 +11,7 @@ A simulation example in golang
 * [Possible Solutions](#possible-solutions)
 	* [Sequencial Non-goroutine Solution](#sequencial-non-goroutine-solution)
 	* [Actor/Sprite Solution](#actorsprite-solution)
-* [How To Run](#how_to_run)
+* [How To Run](#how-to-run)
 
 
 ## Problem Outline
