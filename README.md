@@ -114,25 +114,33 @@ an Alien's responibility is to
   
  1. an alien needs to get an available route and then occupy the town - but the at the same time could have beed destroyed. for instance the code look like:
 ```golang 
-  if alien.location == nil {
-				next_town = route_map.AnyTown()
+if alien.location == nil {
+	next_town = route_map.AnyTown() 
+} else {
+	next_town = alien.location.RandomRouteFrom()
+}
+if next_town != nill {
+	if next_town.IsAlreadyOccupied() {
+		occupier = next_town.GetOccupier()
+		next_town.Destroy()
+		occupier.Kill()
 	} else {
-				next_town = alien.location.RandomRouteFrom()
+		next_town.SetOccupier(alien)
+		alien.location = next_town
 	}
-  if next_town.IsAlreadyOccupied() {
-    occupier = next_town.GetOccupier()
-    next_town.Destroy()
-    occupier.Kill()
-  } else {
-    next_town.SetOccupier(alien)
-    alien.location = next_town
-  }
+} else {
+	alien.Trapped()
+}
 ```
  *  `location` is `*Town`
 
  1. there are race conditions on the next_town's state
  1. there are race conditions on the next_town's routes - it's neighbours could have been detroyed between `AnyTown()`, `RandomRouteFrom()` and  `IsAlreadyOccupied()`
  1. between the test `IsAlreadyOccupied() == false`  and `next_town.SetOccupier(alien)` it could have been already occupied.
- 1. And there are more around the destroy and the killings
+ 1. And there are more in `if next_town.IsAlreadyOccupied() {}` condition.
+ 
+
+  So the next question is `channels` or `Mutex` and where ?
+   
 
 
