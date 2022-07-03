@@ -9,8 +9,8 @@ A simulation example in golang
 * [Problem Outline](#problem-outline)
 * [Basic Needs](#basic-needs)
 * [Possible Solutions](#possible-solutions)
-	* [Sequencial Non-goroutine Solution](sequencial-non-goroutine-solution)
-	* [Actor Solution](actor-solution)
+	* [Sequencial Non-goroutine Solution](#sequencial-non-goroutine-solution)
+	* [Actor/Sprite Solution](#actorsprite-solution)
 * [How To Run](#how_to_run)
 
 
@@ -61,7 +61,7 @@ to
 ```
 ## Possible Solutions
 
-### Sequencial No-goroutine Solution
+### Sequencial Non-goroutine Solution
 
 As possibly hinted in the requirements with *"Each iteration..."*,  one solution  would be to cose the simulation without goroutes as an O(N**2) solution 
 The main loop being the 10k iterations:
