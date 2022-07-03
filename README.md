@@ -6,6 +6,11 @@
 A simulation example in golang
 
 
+* [Problem Outline](problem-outline)
+* [Basic Needs](basic-needs)
+* [How To Run](how_to_run)
+
+
 ## Problem Outline
 
 1. Read in  map file of towns
@@ -51,7 +56,7 @@ to
  .
  }
 ```
-
+## Possible Solutions
 
 ### Actor Solution
 
@@ -147,5 +152,41 @@ if next_town != nill {
   So the next question is `channels` or `Mutex` and where ?
    
 
+## How to Run
+```
+go run main.go  -energy=bool -energy=int  N map_file
+```
 
+where required arguments are:
+ 1. `N` is the number of aliens to land on the por planet
+ 2. `map_file` the path to a map file in the described format below
+
+where the optional (flag) arguments are:
+  * -debug
+  * -energy 
+
+Optional flags must be before the position line arguments, `N` and `map_file`
+  
+  examples:
+```
+	go run main.go  10 maps/map_01.txt
+	go run main.go -energy= 10 3 maps/map_01.txt
+	go run main.go -debug=true -energy= 10 3 maps/map_01.txt
+```
+
+Map file format is like this:
+
+```
+#Foo north=Bar west=Baz south=Qu-ux
+#Bar south=Foo west=Bee
+#Qu-ux north=Foo west=Bee
+#Bee west=Bar east=Qu-ux
+#Baz west=Foo south=Daz
+Daz north=Kaz
+Naz west=Zaz south=Daz
+Zaz north=Kaz east=Naz
+Kaz south=Zaz
+```
+
+Lines starting with # are ignored`
 
