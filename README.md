@@ -1,3 +1,7 @@
+
+![Martian war machines destroying an English town in H  G  Wells  The War of the Worlds](https://user-images.githubusercontent.com/38292/177047313-29ac259c-7908-4c66-aa78-8bd8b928c8d8.png)
+
+
 # Aisvoli Exoginon
 A simulation example in golang
 
@@ -90,7 +94,7 @@ for iteration in 10k:
 
 Define one actor Alien and Town
 
-1. an Alien's responibility is to 
+an Alien's responibility is to 
   1. get a route from the Map
   1. invade the new town
   1. if the town is already invaded kill the other alien,  destroy the town and die
@@ -108,6 +112,40 @@ Define one actor Alien and Town
   1. unpredictable dev cost
   1. race and dead lock prone.
   1. needs an expienced golang developer
-
+  
+  
+  #### A FEW POSSIBLE RACE CONDITIONS
+  
+ 1. an alien needs to get an available route and then occupy the town - but the at the same time could have beed destroyed. for instance the code look like:
+```golang 
+if alien.location == nil {
+	next_town = route_map.AnyTown() 
+} else {
+	next_town = alien.location.RandomRouteFrom()
+}
+if next_town != nill {
+	if next_town.IsAlreadyOccupied() {
+		occupier = next_town.GetOccupier()
+		next_town.Destroy()
+		occupier.Kill()
+	} else {
+		next_town.SetOccupier(alien)
+		alien.location = next_town
+	}
+} else {
+	alien.Trapped()
+}
 ```
+ *  `location` is `*Town`
+
+ 1. there are race conditions on the next_town's state
+ 1. there are race conditions on the next_town's routes - it's neighbours could have been detroyed between `AnyTown()`, `RandomRouteFrom()` and  `IsAlreadyOccupied()`
+ 1. between the test `IsAlreadyOccupied() == false`  and `next_town.SetOccupier(alien)` it could have been already occupied.
+ 1. And there are more in `if next_town.IsAlreadyOccupied() {}` condition.
+ 
+
+  So the next question is `channels` or `Mutex` and where ?
+   
+
+
 
