@@ -6,9 +6,12 @@
 A simulation example in golang
 
 
-* [problem-outline](https://github.com/thanos/eisvoli-exoginon/blob/main/README.md#problem-outline)
-* [Basic Needs](basic-needs)
-* [How To Run](how_to_run)
+* [Problem Outline](#problem-outline)
+* [Basic Needs](#basic-needs)
+* [Possible Solutions](#possible-solutions)
+	* [Sequencial Non-goroutine Solution](sequencial-non-goroutine-solution)
+	* [Actor Solution](actor-solution)
+* [How To Run](#how_to_run)
 
 
 ## Problem Outline
@@ -58,7 +61,7 @@ to
 ```
 ## Possible Solutions
 
-### Actor Solution
+### Sequencial No-goroutine Solution
 
 As possibly hinted in the requirements with *"Each iteration..."*,  one solution  would be to cose the simulation without goroutes as an O(N**2) solution 
 The main loop being the 10k iterations:
