@@ -1,9 +1,9 @@
-Foo north=Bar west=Baz south=Qu-ux
-Bar south=Foo west=Bee
-Qu-ux north=Foo west=Bee
-#Bee west=Bar east=Qu-ux
-Baz west=Foo south=Daz
-Daz north=Baz west=Naz
+# Foo north=Bar west=Baz south=Qu-ux
+# Bar south=Foo west=Bee
+# Qu-ux north=Foo west=Bee
+# Bee west=Bar east=Qu-ux
+# Baz west=Foo south=Daz
+Daz west=Naz
 Naz west=Zaz east=Daz
 Zaz north=Kaz east=Naz
 Kaz south=Zaz
